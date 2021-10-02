@@ -1,0 +1,44 @@
+header {
+    background-color: $second-neutral-color;
+    /*cierra ul*/ }
+    header img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      margin-top: 30px; }
+    header #color_nav {
+      background-color: $second-neutral-color !important; }
+    header .nav__my {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-bottom: 2em;
+      width: 70%;
+      background-color: $second-neutral-color; }
+    header ul {
+      width: 80%;
+      margin: 0 auto;
+      justify-content: space-between;
+      /*cierra li*/ }
+      header ul .li__item {
+        text-align: center;
+        font-family: 'Oswald', sans-serif;
+        color: $secondary-color;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: solid 3px $second-neutral-color;
+        /*cierradorpdown*/ }
+        header ul .li__item .dropdown__a {
+          font-size: 0.9em;
+          color: $secondary-color; }
+          header ul .li__item .dropdown__a a {
+            color: $secondary-color; }
+        header ul .li__item .dropdown__a:active {
+          background-color: $primary-color;
+          color: $second-neutral-color; }
+        header ul .li__item .dropdown__a:hover {
+          background-color: $primary-color;
+          color: $second-neutral-color; }
+      header ul .li__item-hover:hover {
+        border-bottom: solid 3px $primary-color; }

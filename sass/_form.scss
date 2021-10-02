@@ -1,0 +1,76 @@
+.mi_form {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-bottom: 60px;
+  background-color: $second-neutral-color;
+  select {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    color: $neutral-color;
+    border: solid 1px $primary-color;
+    option {
+      font-size: 0.8em;
+      background-color: $neutral-color;
+      font-family: "Roboto", sans-serif;
+      color: $neutral-color;
+      font-size: 1.1em;
+      font-weight: 300;
+      background-color: $second-neutral-color;
+      border: none;
+      line-height: 1.7em;
+    }
+  }
+  div {
+    margin-top: 15px;
+  }
+  .mi_label {
+    font-family: "Oswald", sans-serif;
+    color: $neutral-color;
+    font-size: 1.2em;
+  }
+  input {
+    font-family: "Roboto", sans-serif;
+    color: $neutral-color;
+    font-size: 1em;
+    font-weight: 300;
+    background-color: $second-neutral-color;
+    border: solid 1px $primary-color;
+  }
+  .mi_button {
+    font-family: "Oswald", sans-serif;
+    font-size: 1em;
+    width: 6em;
+    font-weight: 300;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    color: $primary-color;
+    font-weight: 500;
+    letter-spacing: 0px;
+    background-color: #000000;
+    text-align: center;
+    font-size: 18px;
+    border-color: $primary-color;
+  }
+  #button-send {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+  .mi-textarea {
+    border: solid 1px $primary-color;
+  }
+  .acepta_terminos {
+    color: $neutral-color;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+@media (max-width: 768px) {
+  .mi_form {
+    width: 90%;
+  }
+}
