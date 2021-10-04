@@ -94,7 +94,7 @@
 
     <!---------------- FILTRO CLASE---------------->
     <section id="contenedorMiSelector">
-        <select class="mi-formselect form-select" aria-label="Default select example" id="miSeleccion"
+        <select id="mi-formselect" class=" form-select" aria-label="Default select example" 
             onchange="ordenar();">
             <option selected>SELECCIONE UN DÍA</option>
             <option value="Lunes">LUNES</option>
@@ -198,10 +198,10 @@
                     <table id="miTabla" class="table" >
                         <thead>
                             <tr class="justify-content-between">
-                                <th scope="col">CLASE</th>
-                                <th scope="col">DÍA</th>
-                                <th scope="col">HORARIO</th>
-                                <th scope="col">PRECIO</th>
+                                <th scope="col" class="text-center">CLASE</th>
+                                <th scope="col" class="text-center">DÍA</th>
+                                <th scope="col" class="text-center">HORARIO</th>
+                                <th scope="col" class="text-center"> ELIMINAR</th>
                             </tr>
                         </thead>
                     </table>
