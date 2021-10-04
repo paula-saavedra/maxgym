@@ -119,6 +119,57 @@ header ul .li__item-hover:hover {
   .mi_form {
     width: 90%; } }
 
+#sectionPronostico {
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 2px solid #01ffe5; }
+  #sectionPronostico h3 {
+    font-size: 26px; }
+  #sectionPronostico p {
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+    color: #000000;
+    font-weight: 300;
+    text-align: center;
+    font-size: 14px; }
+    #sectionPronostico p span {
+      margin: 10px; }
+    #sectionPronostico p b {
+      font-family: "Oswald", sans-serif;
+      font-weight: 600; }
+
+#seccionProfesores {
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  margin-top: 35px;
+  margin-bottom: 40px; }
+  #seccionProfesores a {
+    text-decoration: none;
+    background-color: #01ffe5;
+    color: #000000;
+    font-family: "Oswald", sans-serif;
+    border-color: #000000;
+    margin: 0 auto;
+    display: block; }
+  #seccionProfesores p {
+    font-size: 12px;
+    text-align: left; }
+
+.micard-title {
+  font-size: 16px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  line-height: 26px; }
+
+#profesor-4, #profesor-3, #profesor-2, #profesor-1 {
+  border: 1px solid #01ffe5; }
+
 /*Generales*/
 p {
   font-family: "Roboto", sans-serif;
