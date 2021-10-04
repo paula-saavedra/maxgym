@@ -4,6 +4,7 @@ $(document).ready(function()
     popularListaCompleta();
     renderizarProductos();
     revisarCarrito();
+    mostrarTotal();
     console.log("El DOM esta listo");
     });
 
@@ -205,24 +206,22 @@ function renderizarProductos(){
                         </tbody>
                     </table>`
                 );
-
-                
             })
         } 
     }
         
 // --> FUNCION: mostrar total en el modal
-    function mostrarTotal(){
-        if(localStorage.getItem("carrito") != null){
-            if (numeroDeClases >= 12) {
-                $("#resultadoTabla").append("<h2>El total a abonar con su descuento es de <b>$" + totalConDescuento + "</b>.</h2>");
-            } else if (numeroDeClases <= 11){
-                $("#resultadoTabla").append("<h2> Aún NO aplica el descuento, el valor total a abonar es de $" + totalClase + ".</h2>");
-            }/* else if (carrito.length === 0 ){
-                $("#resultadoTabla") = html (``);
-            }*/
-        } 
-    }  
+function mostrarTotal(){
+    if(localStorage.getItem("carrito") != null){
+        if (numeroDeClases >= 12) {
+            $("#resultadoTabla").empty().append("<h2>El total a abonar con su descuento es de <b>$" + totalConDescuento + "</b>.</h2>");
+        } else if (numeroDeClases <= 11){
+            $("#resultadoTabla").empty().append("<h2> Aún NO aplica el descuento, el valor total a abonar es de $" + totalClase + ".</h2>");
+        }/* else if (carrito.length === 0 ){
+            $("#resultadoTabla") = html (``);
+        }*/
+    } 
+}
 
 
     
