@@ -2,53 +2,48 @@
 let productos = [];
 
 $(document).ready(function () {
-  //asincronia
-  obtenerJsonProductos();
-  //cambios en el DOM
-  $("#sectionPronostico").css({ background: "red", color: "white" });
-  //OBTENER CLIMA
+  obtenerJsonProfesores();
   obtenerClima();
-  //DEPORTES
-  //obtenerCityBikes();
-
-  obtenerDatos();
+  $("#seccionProfesores").hide();
+  $("#seccionProfesores").fadeIn(1500);
 });
 
-const obtenerJsonProductos = () => {
+function obtenerJsonProfesores() {
   //GETJSON
   const URLJSON = "profesores.json";
   $.getJSON(URLJSON, function (respuesta, estado) {
     if (estado == "success") {
-      productos = respuesta.stock;
-      console.log(productos);
+      profesores = respuesta.staff;
+      console.log(profesores);
       renderizarProfesores();
     }
   });
-};
+}
 
-const renderizarProfesores = () => {
-  for (const producto of productos) {
-    $("#seccionProfesores").append(`<li class="list-group-item">
-        <h3> ID: ${producto.id}</h3>
-        <img src=${producto.foto} width="50" height="50">
-        <p> Producto: ${producto.nombre}</p>
-        <p> Precio $ ${producto.precio}</p>
-        <button class='btn btn-danger' id='btn${producto.id}'>Comprar</button>
-        </li>`);
-    //Evento para cada boton
-    $(`#btn${producto.id}`).on("click", function () {
-      //agregar el objeto al carrito
-      //mensaje de confirmacion
-      console.log(`Compraste ${producto.nombre}`);
-    });
+function renderizarProfesores() {
+  for (const profesor of profesores) {
+    $("#seccionProfesores").append(`
+    <div class="miscards card"  id="profesor-${profesor.id}" style="width: 18rem;">
+      <img class="card-img-top cardimg" src="images/${profesor.foto}" alt="Card image cap">
+      <div class="card-body" id="body-${profesor.id}" >
+        <h5 class="micard-title card-title"><b>${profesor.nombre}</b> <br> ${profesor.disciplina}</h5>
+        <p class="card-text">${profesor.info}</p>
+        <a href="${profesor.link}" target:"_blank" class="btn btn-primary">¡SEGUIR!</a>
+      </div>
+    </div>
+         `);
   }
-};
+}
+// --> FUNCION Agregar animacion
 
-//API CLIMA
-//para obtener un JSON con una lista de objetos que se usan generando variables que se agregan al contenedor
+  
+  
+
+// --> API CLIMA
 const URLClima =
   "https://api.open-meteo.com/v1/forecast?latitude=-34.6118&longitude=-58.4173&current_weather=true&timezone=America/Argentina/Buenos_Aires";
 
+//Variables
 const codes = {
   0: "Despejado",
   1: "Mayormente despejado",
@@ -65,7 +60,8 @@ const codes = {
   82: "Tormenta fuerte",
 };
 
-const obtenerClima = () => {
+// --> FUNCION para mostrar el clima
+function obtenerClima() {
   $.ajax(URLClima).done(function (response) {
     let hora = new Date();
     let dataTemp = response.current_weather.temperature;
@@ -73,48 +69,23 @@ const obtenerClima = () => {
     let dataCode = response.current_weather.weathercode;
 
     $("#sectionPronostico").append(
-      `<p>Hora: ${hora.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })}</p>
-            <p>Clima: ${codes[dataCode]}</p>
-            <p>Temperatura: ${dataTemp}°</p>
-            <p>Viento: ${dataWind} km/h</p>`
+      `<p>
+        <span>
+          <b>HORA:</b> ${hora.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </span>
+        <span>
+        <b>CLIMA:</b> ${codes[dataCode]}
+        </span>
+              <span><b>TEMPERATURA:</b> ${dataTemp}°</span>
+              <span><b>VIENTO:</b> ${dataWind} km/h</span>
+            </p>`
     );
   });
-};
-//API DEPORTES
-
-//GET
-function obtenerDatos() {
-    const URL = "https://api.itbook.store/1.0/new";
-    $.get(URL).done(function(resultado, estado) {
-        console.log("Estado que retorna la API de libros: " + estado);
-        if (estado == "success") {
-            let libros = resultado.books;
-            libros.forEach(libro => {
-                $("#libros").append("<tr><td>" + libro.title + "</td><td><img src=" + libro.image + "></td></tr>");
-            });
-        }
-    });
 }
 
-//POST
-function agregarDatos() {
-    let objetoJson = {
-        "userId": 1,
-        "id": 617,
-        "title": "Prueba",
-        "body": "cualquier cosa"
-    }
-    const URLPOST = "https://jsonplaceholder.typicode.com/posts"
-
-    $.post(URLPOST, objetoJson).done(function(data, estado) {
-        //lo que retorna 
-        console.log("Estado jsonPlace: " + estado);
-        console.log("Data de retorno: " + JSON.stringify(data));
-    });
-}
 /*
 function obtenerCityBikes() {
     const URLdeportes = "http://api.citybik.es/v2/networks?fields=id,name,href";
@@ -127,6 +98,4 @@ function obtenerCityBikes() {
             });
         }
     });
-}
-
-*/
+}*/
