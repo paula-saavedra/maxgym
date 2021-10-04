@@ -74,13 +74,7 @@ function sumarAlCarrito(){
                     }
     }
 
-// --> FUNCION: descontar lugares
-    function descontarLugares(){
-       if (lugaresDisponibles != 0) {
-           lugaresRestantes = Clase.lugares - 1;
-           console.log("Su lugar fue reservado, quedan " + lugaresRestantes + " lugares restantes");
-        }
-    }
+
 
 // -- > FUNCION: calcular monto del descuento
     function calcularMontoDescontar(){
@@ -131,7 +125,10 @@ function renderizarProductos(){
                     'success'
                 );
                 //Descontar lugares    
-                descontarLugares();
+                if (lugaresDisponibles != 0) {
+                    lugaresRestantes = Clase.lugares - 1;
+                    console.log("Su lugar fue reservado, quedan " + lugaresRestantes + " lugares restantes");
+                 }
                 //Mostrar info por consola
                 console.log("El valor es de " + totalClase);
                 //Calcular monto de descuento
