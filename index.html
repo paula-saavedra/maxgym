@@ -18,11 +18,12 @@
     -->
 
     <title>MAX GYM</title>
-</head> <!-- END HEAD  -->
+</head>
+<!---------------- /END HEAD ---------------->
 
 <body>
-    <!--  START BODY  -->
-    <!-- Start Header -->
+    <!---------------- BODY ---------------->
+    <!---------------- HEADER ---------------->
     <header>
         <a href="index.html"><img src="images/logo.png" width="394" height="83" alt="logo cake design school"
                 class="animate__animated animate__zoomIn"></a>
@@ -37,11 +38,11 @@
                     <li class="nav-item li__item li__item-hover">
                         <a class="nav-link " href="index.html">Home</a>
                     </li>
-
+                    <!-- Desplegable -->
                     <li class="nav-item dropdown li__item li__item-hover">
                         <a class="nav-link dropdown-toggle" href="clases.html" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            CLASES
+                            STAFF
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown mi_dropdown">
                             <a class="dropdown-item dropdown__a li__item" href="clases.html">FUNCIONAL</a>
@@ -52,6 +53,7 @@
                             <a class="dropdown-item dropdown__a li__item" href="clases.html">Ver Todos</a>
                         </div>
                     </li>
+                    <!-- Fin desplegable-->
                     <li class="nav-item li__item li__item-hover">
                         <a class="nav-link li__item" href="contacto.html">contacto</a>
                     </li>
@@ -62,9 +64,11 @@
                 </ul>
             </div>
         </nav>
-        <!-- NAV BAR CON BOOTSTRAP-->
-    </header> <!-- End Header -->
-    <!-- Start Carrousel -->
+        <!---------------- /END NAV BAR---------------->
+    </header>
+    <!---------------- /END HEADER---------------->
+
+    <!---------------- CARROUSEL ---------------->
     <div id="carrouselBootstrap" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -86,7 +90,8 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!--/ End Carrousel -->
+    <!---------------- /END CARROUSEL---------------->
+
     <!---------------- FILTRO CLASE---------------->
     <section id="contenedorMiSelector">
         <select class="mi-formselect form-select" aria-label="Default select example" id="miSeleccion"
@@ -101,11 +106,14 @@
         </select>
     </section>
     <!---------------- /END FILTRO CLASE---------------->
-
+    
+    <!---------------- CLASES ---------------->
     <section id="cursosDestacados">
         <!-- Array de clases -->
     </section>
-    <!-- FIN CLASES-->
+    <!---------------- /END CLASES---------------->
+
+    <!---------------- RECONOCIMIENTOS ---------------->
     <section id="reconocimientos" class="animate__animated animate__zoomIn">
         <!--  COMIENZO Premios -->
         <img src="images/reconocimientos1.jpg" alt="reconocimientos premios en pasteleria">
@@ -121,7 +129,10 @@
                 profesionales con amplia trayectoria, entre otros.
             </p>
         </div>
-    </section> <!--  FIN Premios -->
+    </section>
+    <!---------------- /END RECONOCIMIENTOS---------------->
+
+    <!---------------- EXPOSICIONES ---------------->
     <section class="expos">
         <!--  COMIENZO Expos -->
         <div class="item_expos animate__animated animate__fadeInLeft  expoEventos">
@@ -170,9 +181,9 @@
             </div>
         </div>
     </section>
-    <!---------------- /END EXPOS---------------->
+    <!---------------- /END EXPOSICIONES ---------------->
 
-    <!---------------- MODAL---------------->
+    <!---------------- MODAL ---------------->
     <div class="mi_modal modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -212,9 +223,9 @@
             </div>
         </div>
     </div>
-    <!----------------/ FIN MODAL---------------->
-    
-    <!----------------START FOOTER---------------->
+    <!----------------/ FIN MODAL ---------------->
+
+    <!----------------START FOOTER ---------------->
     <footer class="footer__mine">
         <div class="redes">
             <h2>Seguínos!</h2>
@@ -230,14 +241,10 @@
         <p>Desarrollado por Paula Saavedra.<br>
             TODOS LOS DERECHOS RESERVADOS.</p>
     </footer>
-    <!---------------- /END FOOTER---------------->
+    <!---------------- /END FOOTER ---------------->
 
-    <!----------------LINKS---------------->
-    <!-- WOW animaciones -->
-    <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
+    <!---------------- LINKS ---------------->
+   
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -258,6 +265,7 @@
     <!--Mi script-->
     <script src="constructor.js"></script>
     <script src="script2.js"></script>
+    
     <!---------------- /END LINKS---------------->
 </body>
 <!---------------- /END BODY---------------->
