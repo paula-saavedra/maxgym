@@ -222,6 +222,5 @@ function renderizarProductos(){
         } 
     }  
 
-    console.log("El numero de clases es" + numeroDeClases);
 
     
