@@ -1,0 +1,61 @@
+#sectionPronostico {
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 2px solid $primary-color;
+    h3{
+        font-size: 26px;
+    }
+    p {
+        margin: 0px;
+        font-family: "Roboto", sans-serif;
+        color: $secondary-color;
+        font-weight: 300;
+        text-align: center;
+        font-size: 14px;
+            span{
+            margin: 10px;
+            }
+            b {
+                font-family: "Oswald", sans-serif;
+                font-weight: 600;
+            }
+      } 
+    }
+
+#seccionProfesores{
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    a{
+      text-decoration: none;
+      background-color: $primary-color;
+      color:$secondary-color;
+      font-family: "Oswald", sans-serif; 
+      border-color: $secondary-color;
+      margin: 0 auto;
+      display: block;
+    }
+
+    p{
+        font-size: 12px;
+        text-align: left;
+    }
+    }
+
+    .micard-title {
+        font-size: 16px;
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase; 
+        line-height: 26px;
+    }
+
+    #profesor-4, #profesor-3, #profesor-2, #profesor-1{
+      border:  1px solid #01ffe5;
+    }
