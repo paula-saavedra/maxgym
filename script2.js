@@ -3,6 +3,7 @@ $(document).ready(function()
     {
     popularListaCompleta();
     renderizarProductos();
+    revisarCarrito();
     console.log("El DOM esta listo");
     });
 
@@ -27,7 +28,7 @@ function popularListaCompleta() {
 console.log(listaCompletaClases);
 
 // --> FUNCION: FILTRAR CLASES POR DIA: a partir del selector muestra la clases del dia seleccionado
-const ordenar = () => {
+function ordenar() {
     let seleccion = $("#miSeleccion").val().toUpperCase();
     popularListaCompleta();
     listaCompletaClases = listaCompletaClases.filter(Clase => Clase.dia ==
@@ -38,45 +39,68 @@ const ordenar = () => {
 // --> FUNCION: mostrar reservas en tabla
     $("#btn-mireserva").click(function() {
         mostrarReservas();
+        mostrarTotal();
     });
 
-    const mostrarReservas =()=>{
+    function mostrarReservas() {
         $('#mi_modal').modal('show');
     }
-
     
-// --> FUNCION: sumar al carrito
-    // Variables globales:
+// --> // VARIABLES GLOBALES
     let carrito = [];
-    let totalClase = 300;
-    let numeroDeClases = 1;
-    const valorClase = 300;
+    let totalClase = 300; // El precio total de las clases
+    let numeroDeClases = 1; // Cantidad de clases reservadas
+    const valorClase = 300; // Precio de cada clase
 
+    let lugaresDisponibles = Clase.lugares; // Cupo de cada clases
+    let lugaresRestantes = 0; // Cuantos quedan una vez que se reservan
+
+    let porcentajeDescuento = 20; // % que se descuenta del total
+    let montoDescontar = 0; // Cantidad a descontar del total 
+
+    let totalConDescuento = totalClase - montoDescontar; // Precio total sin descuento - monto que se descuenta
+
+// --> FUNCION: sumar al carrito
 function sumarAlCarrito(){
-if (localStorage.getItem("carrito") != null) {
+    if (localStorage.getItem("carrito") != null) {
                     carrito = JSON.parse(localStorage.getItem("carrito"));
                     for (const _Clase of carrito) {
                         numeroDeClases = numeroDeClases + 1;
-                       totalClase = valorClase * numeroDeClases;
+                        totalClase = valorClase * numeroDeClases;
                         console.log("El valor de las clases reservadas es de $" + totalClase);
-                    }
+                        }
                 } else if (localStorage.getItem("carrito") == null){
-                console.log("El carrito esta vacio");
-                }
-}
+                    console.log("El carrito esta vacio");
+                    }
+    }
+
+// --> FUNCION: descontar lugares
+    function descontarLugares(){
+       if (lugaresDisponibles != 0) {
+           lugaresRestantes = Clase.lugares - 1;
+           console.log("Su lugar fue reservado, quedan " + lugaresRestantes + " lugares restantes");
+        }
+    }
+
+// -- > FUNCION: calcular monto del descuento
+    function calcularMontoDescontar(){
+        montoDescontar = (porcentajeDescuento * totalClase) / 100;
+        console.log("El 20% es " + montoDescontar);
+    }
+
+// --> FUNCION: aplicar descuento
+    function aplicarDescuento(){
+        if (numeroDeClases >= 12) {
+            console.log("El total a abonar con su descuento es de " + (totalClase - montoDescontar));
+        } else if (numeroDeClases <= 11) {
+            console.log("Aún NO aplica el descuento, el valor total a abonar es de " + totalClase);
+        }
+    }
+
 
 // CREAR CLASES DE FORMA DINAMICA + BOTON CARRITO + FUNCIONES
-    //Variables globales
-
-    let lugaresDisponibles = Clase.lugares;
-    let lugaresRestantes = 0;
-
-    let totalConDescuento = 0;
-
-    let porcentajeDescuento = 20;
-    let montoDescontar = 0;
-
-const renderizarProductos = () => {
+    
+function renderizarProductos(){
     document.querySelectorAll(".contenedorDeClase").forEach(el => el.remove());
 
     for (const Clase of listaCompletaClases) {
@@ -107,29 +131,17 @@ const renderizarProductos = () => {
                     'success'
                 );
                 //Descontar lugares    
-                if (lugaresDisponibles != 0) {
-                    lugaresRestantes = Clase.lugares - 1;
-                    console.log("Su lugar fue reservado, quedan " + lugaresRestantes + " lugares restantes");
-                }
+                descontarLugares();
                 //Mostrar info por consola
-                console.log("Reservo " + numeroDeClases + " clases");
                 console.log("El valor es de " + totalClase);
-                
                 //Calcular monto de descuento
-                montoDescontar = (porcentajeDescuento * totalClase) / 100;
-                console.log("El 20% es " + montoDescontar);
+                calcularMontoDescontar();
                 //Aplicar descuento
-               if (numeroDeClases >= 12) {
-                    totalConDescuento = console.log("El total a abonar con su descuento es de " + totalConDescuento);
-                } else if (numeroDeClases <= 11) {
-                    console.log("Aún NO aplica el descuento, el valor total a abonar es de " + totalClase);
-                }
+                aplicarDescuento();
                 //Crear lista de reservas en modal
-                $("#listaTabla").html(``);
-                    for (const _clase of carrito){
-                        $("#listaTabla").append(
-                            `<table class="table table-striped table-hover">
-                            <tbody>
+                $("#listaTabla").append(
+                    `<table class="table table-striped table-hover">
+                        <tbody>
                             <tr class="d-flex justify-content-between align-items-bottom">
                                 <td class="table text-start fs-5 fw-bold">${Clase.disciplina}</td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.dia}</b></td>
@@ -138,25 +150,28 @@ const renderizarProductos = () => {
                                     <button  class="btn btn-dark type="submit" id="eliminar${Clase.id}">X</button>
                                 </td>
                             </tr>
-                            </tbody>
-                            </table>
-                            `);
-                    };
-                
+                        </tbody>
+                    </table>
+                    `);
                 //Mostrar por consola el total de clases reservadas
                 console.log(carrito);
+                //Mostrar en el modal
+               
+                // Mostrar total si hay clases al recargar la pagina
+                
+            //CIERRE
             });
             }
         
         }
-
 // --> FUNCION: quitar un producto de la tabla               >>>>>>>>>> NO ANDA >>>>>>>>>>
-  /*  $(`#eliminar${Clase.id}`).click(function() {
-        const elimProd = carrito.splice().find(v => v.id == `${Clase.id}`);
-        const elimIndex = carrito.indexOf(elimProd);
-        carrito.splice(elimIndex, 1);
+   $(`#eliminar${Clase.id}`).click(function() {
+        const eliminarClase = carrito.splice().find(v => v.id == `${Clase.id}`);
+        const eliminarIndex = carrito.indexOf(eliminarClase);
+        carrito.splice(eliminarIndex, 1);
         localStorage.setItem("carrito", JSON.stringify(carrito));
-    })*/
+        //mostrarTotal();
+    })
 
 // --> FUNCION: vaciar carrito del modal
 
@@ -166,9 +181,50 @@ const renderizarProductos = () => {
 
     function vaciarCarrito(){
         $("#listaTabla").html (``);
+        $("#resultadoTabla").html (``);
+        
         carrito = []
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
   
-    
+// --> FUNCION: si hay reservas las muestro en el modal
+    //Variable
+   let carrito2 = JSON.parse(localStorage.getItem('carrito'));
+
+    function revisarCarrito(){
+        if(carrito2){
+            carrito2.forEach(Clase=>{
+                $("#listaTabla").append(
+                    `<table class="table table-striped table-hover">
+                        <tbody>
+                            <tr class="d-flex justify-content-between align-items-bottom">
+                                <td class="table text-start fs-5 fw-bold">${Clase.disciplina}</td>
+                                <td class="table text-center fs-4 fw-bold"><b>${Clase.dia}</b></td>
+                                <td class="table text-center fs-4 fw-bold"><b>${Clase.horario}</b></td>
+                                <td class="table text-center">
+                                    <button  class="btn btn-dark type="submit" id="eliminar${Clase.id}">X</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>`
+                );
+            })
+        } 
+    }
+        
+// --> FUNCION: mostrar total en el modal
+    function mostrarTotal(){
+        if(localStorage.getItem("carrito") != null){
+            if (numeroDeClases >= 12) {
+                $("#resultadoTabla").append("<h2>El total a abonar con su descuento es de" + totalConDescuento + "</h2>");
+            } else if (numeroDeClases <= 11){
+                $("#resultadoTabla").append("<h2> Aún NO aplica el descuento, el valor total a abonar es de " + totalClase + "</h2>");
+            }/* else if (carrito.length === 0 ){
+                $("#resultadoTabla") = html (``);
+            }*/
+        } 
+    }  
+
+    console.log("El numero de clases es" + numeroDeClases);
+
     
