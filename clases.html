@@ -51,12 +51,12 @@
                             <a class="dropdown-item dropdown__a li__item" href="clases.html">Ver Todos</a>
                         </div>
                     </li>
-                    <!-- Fin Desplegable -->
+                    <!-- Fin desplegable-->
                     <li class="nav-item li__item li__item-hover">
                         <a class="nav-link li__item" href="contacto.html">contacto</a>
                     </li>
                     <li class="nav-item li__item li__item-hover">
-                        <a class="nav-link " href="#">MI RESERVA</a>
+                        <a class="nav-link " href="#" id="btn-mireserva">MI RESERVA</a>
                     </li>
                 </ul>
             </div>
@@ -100,7 +100,47 @@
 
     </section>
     <!-- /END OBTENER API-->
-    
+    <!---------------- MODAL ---------------->
+    <div class="mi_modal modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="mi_modal_content modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">MI RESERVA</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="encabezado_tabla modal-body" id="encabezadoTabla">
+                    <table id="miTabla" class="table" >
+                        <thead>
+                            <tr class="justify-content-between">
+                                <th scope="col" class="text-center">CLASE</th>
+                                <th scope="col" class="text-center">DÍA</th>
+                                <th scope="col" class="text-center">HORARIO</th>
+                                <th scope="col" class="text-center"> ELIMINAR</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal-body" id="listaTabla">
+                    <!-- Datos de la tabla -->
+                </div>
+                <div class="modal-body" id="resultadoTabla">
+                    <!-- Resultado de la tabla -->
+                </div>
+                <div class="modal-body" id="botonesModal">
+                    <button type="button" class="btn btn-danger" id="botonVaciar" data-dismiss="modal">ELIMINAR RESERVAS</button>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="botonCerrar" data-dismiss="modal">CERRAR</button>
+                    <button type="button" class="btn btn-primary" id="botonEnviar">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------/ FIN MODAL ---------------->
     <!-- --- -- START FOOTER --- -- -->
     <footer class="footer__mine">
         <div class="redes">
@@ -133,7 +173,7 @@
 
     <!--Mi script-->
     <script src="clases.js"></script>
-   
+    <script src="script2.js"></script>
 </body> <!-- --- -- END BODY --- -- -->
 
 </html>
