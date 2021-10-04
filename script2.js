@@ -4,7 +4,6 @@ $(document).ready(function()
     popularListaCompleta();
     renderizarProductos();
     revisarCarrito();
-    mostrarTotal();
     console.log("El DOM esta listo");
     });
 
@@ -41,6 +40,7 @@ function ordenar() {
     $("#btn-mireserva").click(function() {
         mostrarReservas();
         mostrarTotal();
+        
     });
 
     function mostrarReservas() {
@@ -49,8 +49,8 @@ function ordenar() {
     
 // --> // VARIABLES GLOBALES
     let carrito = [];
-    let totalClase = 300; // El precio total de las clases
-    let numeroDeClases = 1; // Cantidad de clases reservadas
+    let totalClase = 0; // El precio total de las clases
+    let numeroDeClases = 0; // Cantidad de clases reservadas
     const valorClase = 300; // Precio de cada clase
 
     let lugaresDisponibles = Clase.lugares; // Cupo de cada clases
@@ -63,20 +63,25 @@ function ordenar() {
 
 // --> FUNCION: sumar al carrito
 function sumarAlCarrito(){
-    if (localStorage.getItem("carrito") != null) {
-                    carrito = JSON.parse(localStorage.getItem("carrito"));
-                    for (const _Clase of carrito) {
-                        numeroDeClases = numeroDeClases + 1;
-                        totalClase = valorClase * numeroDeClases;
-                        console.log("El valor de las clases reservadas es de $" + totalClase);
-                        }
-                } else if (localStorage.getItem("carrito") == null){
-                    console.log("El carrito esta vacio");
-                    }
+        numeroDeClases = numeroDeClases + 1;
+        totalClase = valorClase * numeroDeClases;
+        console.log("El valor de las clases reservadas es de $" + totalClase + ". Reservo " + numeroDeClases + " clases");
     }
 
-
-
+   /* function sumarAlCarrito(){
+        if (localStorage.getItem("carrito") != null) {
+                        carrito = JSON.parse(localStorage.getItem("carrito"));
+                       for (const _Clase of carrito) {
+                            numeroDeClases = numeroDeClases + 1;
+                            totalClase = valorClase * numeroDeClases;
+                            console.log("El valor de las clases reservadas es de $" + totalClase);
+                           }
+                   } else if (localStorage.getItem("carrito") == null){
+                    
+                  console.log("El carrito esta vacio");
+                     }
+        }
+*/    
 // -- > FUNCION: calcular monto del descuento
     function calcularMontoDescontar(){
         montoDescontar = (porcentajeDescuento * totalClase) / 100;
@@ -91,7 +96,6 @@ function sumarAlCarrito(){
             console.log("Aún NO aplica el descuento, el valor total a abonar es de " + totalClase);
         }
     }
-
 
 // CREAR CLASES DE FORMA DINAMICA + BOTON CARRITO + FUNCIONES
     
@@ -153,9 +157,6 @@ function renderizarProductos(){
                     `);
                 //Mostrar por consola el total de clases reservadas
                 console.log(carrito);
-                //Mostrar en el modal
-               
-                // Mostrar total si hay clases al recargar la pagina
                 
             //CIERRE
             });
@@ -172,26 +173,24 @@ function renderizarProductos(){
     })
 
 // --> FUNCION: vaciar carrito del modal
-
     $("#botonVaciar").click (function () {
         vaciarCarrito();
     });
 
     function vaciarCarrito(){
         $("#listaTabla").html (``);
-        $("#resultadoTabla").html (``);
         
-        carrito = []
+        carrito = [];
+        totalClase = 0;
+        totalConDescuento = 0 ;
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
   
 // --> FUNCION: si hay reservas las muestro en el modal
-    //Variable
-   let carrito2 = JSON.parse(localStorage.getItem('carrito'));
-
     function revisarCarrito(){
-        if(carrito2){
-            carrito2.forEach(Clase=>{
+        carrito = JSON.parse(localStorage.getItem('carrito'));
+        if(carrito){
+            carrito.forEach(Clase=>{
                 $("#listaTabla").append(
                     `<table class="table table-striped table-hover">
                         <tbody>
@@ -207,7 +206,9 @@ function renderizarProductos(){
                     </table>`
                 );
             })
+            mostrarTotal();
         } 
+
     }
         
 // --> FUNCION: mostrar total en el modal
@@ -215,11 +216,11 @@ function mostrarTotal(){
     if(localStorage.getItem("carrito") != null){
         if (numeroDeClases >= 12) {
             $("#resultadoTabla").empty().append("<h2>El total a abonar con su descuento es de <b>$" + totalConDescuento + "</b>.</h2>");
-        } else if (numeroDeClases <= 11){
+        } else if ((numeroDeClases >= 1) && (numeroDeClases <= 11)){
             $("#resultadoTabla").empty().append("<h2> Aún NO aplica el descuento, el valor total a abonar es de $" + totalClase + ".</h2>");
-        }/* else if (carrito.length === 0 ){
-            $("#resultadoTabla") = html (``);
-        }*/
+        } else if (numeroDeClases === 0 ){
+            $("#resultadoTabla").empty().append("<h2> No hay clases reservadas");
+        }
     } 
 }
 
