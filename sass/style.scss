@@ -7,6 +7,7 @@ $second-neutral-color: #ffffff;
 
 @import "header";
 @import "form";
+@import "clases";
 
 /*Generales*/
 p {
@@ -19,7 +20,7 @@ p {
 
 h2 {
   font-family: "Oswald", sans-serif;
-  color: #01ffe5;
+  color: $primary-color;
   font-weight: 300;
   text-align: center;
   font-size: 3em;
@@ -27,7 +28,7 @@ h2 {
 
 h3 {
   font-family: "Oswald", sans-serif;
-  color: #01ffe5;
+  color: $primary-color;
   font-weight: 500;
   letter-spacing: 3px;
   text-align: center;
