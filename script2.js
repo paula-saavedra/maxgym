@@ -195,9 +195,9 @@ function renderizarProductos(){
                     `<table class="table table-striped table-hover">
                         <tbody>
                             <tr class="d-flex justify-content-between align-items-bottom">
-                                <td class="table text-start fs-5 fw-bold">${Clase.disciplina}</td>
+                                <td class="table text-center fs-5 fw-bold">${Clase.disciplina}</td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.dia}</b></td>
-                                <td class="table text-center fs-4 fw-bold"><b>${Clase.horario}</b></td>
+                                <td class="table text-center fs-4 fw-bold"><b>${Clase.horario} Hs.</b></td>
                                 <td class="table text-center">
                                     <button  class="btn btn-dark type="submit" id="eliminar${Clase.id}">X</button>
                                 </td>
@@ -205,6 +205,8 @@ function renderizarProductos(){
                         </tbody>
                     </table>`
                 );
+
+                
             })
         } 
     }
@@ -213,9 +215,9 @@ function renderizarProductos(){
     function mostrarTotal(){
         if(localStorage.getItem("carrito") != null){
             if (numeroDeClases >= 12) {
-                $("#resultadoTabla").append("<h2>El total a abonar con su descuento es de" + totalConDescuento + "</h2>");
+                $("#resultadoTabla").append("<h2>El total a abonar con su descuento es de <b>$" + totalConDescuento + "</b>.</h2>");
             } else if (numeroDeClases <= 11){
-                $("#resultadoTabla").append("<h2> Aún NO aplica el descuento, el valor total a abonar es de " + totalClase + "</h2>");
+                $("#resultadoTabla").append("<h2> Aún NO aplica el descuento, el valor total a abonar es de $" + totalClase + ".</h2>");
             }/* else if (carrito.length === 0 ){
                 $("#resultadoTabla") = html (``);
             }*/
