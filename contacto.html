@@ -63,7 +63,6 @@
         </nav>
         <!-- NAV BAR CON BOOTSTRAP-->
     </header> <!-- FIN / Header -->
-    
     <!-- Carrousel -->
     <div id="carrouselBootstrap" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -87,60 +86,87 @@
         </a>
     </div>
     <!--/ FIN Carrousel -->
-    <!--- SECCION PROFESORES -->
-    <section id="seccionProfesores" class="card-group" >
-        <!-- Acá se renderizan los profesores -->
-    </section>
-    <!--- /END SECCION PROFESORES -->
-    <!-- FIN CLASES-->
-    
-    <!-- OBTENER API-->
-    <section id="sectionPronostico" >
-        <h3>PRONÓSTICO PARA CLASES EN EXTERIOR</h3>
-
-    </section>
-    <!-- /END OBTENER API-->
-    <!---------------- MODAL ---------------->
-    <div class="mi_modal modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="mi_modal_content modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">MI RESERVA</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="encabezado_tabla modal-body" id="encabezadoTabla">
-                    <table id="miTabla" class="table" >
-                        <thead>
-                            <tr class="justify-content-between">
-                                <th scope="col" class="text-center">CLASE</th>
-                                <th scope="col" class="text-center">DÍA</th>
-                                <th scope="col" class="text-center">HORARIO</th>
-                                 <!--   <th scope="col" class="text-center"> ELIMINAR</th> -->
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class="modal-body" id="listaTabla">
-                    <!-- Datos de la tabla -->
-                </div>
-                <div class="modal-body" id="resultadoTabla">
-                    <!-- Resultado de la tabla -->
-                </div>
-                <div class="modal-body" id="botonesModal">
-                    <button type="button" class="btn btn-danger" id="botonVaciar" data-dismiss="modal">ELIMINAR RESERVAS</button>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="botonCerrar" data-dismiss="modal">CERRAR</button>
-                    <button type="button" class="btn btn-primary" id="botonEnviar">ENVIAR</button>
-                </div>
-            </div>
+   
+    <!-- FORM-->
+    <form action="#" method="post" class="mi_form" id="formulario">
+        <div class="form-group">
+            <h3>¡SUSCRIBITE!</h3>
         </div>
-    </div>
-    <!----------------/ FIN MODAL ---------------->
+        <div class="form-group">
+            <label for="nombreyapellido" class="mi_label">Nombre y Apellido:</label>
+            <input type="text" name="nombreyapellido" class="form-control" id="campoNombre">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="mi_label">Email</label>
+            <input type="email" class="form-control" id="campoMail" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1" class="mi_label">Area de interés</label>
+            <select class="form-control" id="campoInteres">
+                <option>Pilates</option>
+                <option>GAP</option>
+                <option>Spinning</option>
+                <option>Futbol</option>
+                <option>Funcional</option>
+                <option>Natación</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1" class="mi_label">Consulta</label>
+            <textarea class="mi-textarea form-control" id="campoConsulta" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <input type="reset" name="submit" class="mi_button" id="button-set" value="LIMPIAR">
+            <input type="submit" name="submit" class="mi_button" id="button-send" value="ENVIAR">
+        </div>
+
+
+    </form>
+
+    <!-- --- -- FIN/ FORM --- -- -->
+     <!---------------- MODAL ---------------->
+     <div class="mi_modal modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="mi_modal_content modal-content">
+             <div class="modal-header">
+                 <h3 class="modal-title">MI RESERVA</h3>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="encabezado_tabla modal-body" id="encabezadoTabla">
+                 <table id="miTabla" class="table" >
+                     <thead>
+                         <tr class="justify-content-between">
+                             <th scope="col" class="text-center">CLASE</th>
+                             <th scope="col" class="text-center">DÍA</th>
+                             <th scope="col" class="text-center">HORARIO</th>
+                             <!--   <th scope="col" class="text-center"> ELIMINAR</th> -->
+                         </tr>
+                     </thead>
+                 </table>
+             </div>
+             <div class="modal-body" id="listaTabla">
+                 <!-- Datos de la tabla -->
+             </div>
+             <div class="modal-body" id="resultadoTabla">
+                 <!-- Resultado de la tabla -->
+             </div>
+             <div class="modal-body" id="botonesModal">
+                 <button type="button" class="btn btn-danger" id="botonVaciar" data-dismiss="modal">ELIMINAR RESERVAS</button>
+                 
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" id="botonCerrar" data-dismiss="modal">CERRAR</button>
+                 <button type="button" class="btn btn-primary" id="botonEnviar">ENVIAR</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!----------------/ FIN MODAL ---------------->
     <!-- --- -- START FOOTER --- -- -->
     <footer class="footer__mine">
         <div class="redes">
@@ -167,12 +193,21 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 	<!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 
+    <!-- Sweet alert -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    
     <!--Mi script-->
-    <script src="clases.js"></script>
+    <script src="form.js"></script>
     <script src="script2.js"></script>
 </body> <!-- --- -- END BODY --- -- -->
 
