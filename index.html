@@ -5,9 +5,8 @@
     <!-- START HEAD  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Cake Design School, Escuela de arte gastronomico. Especialización en pastelería, chocolatería, eventos y panadería.">
-    <meta name="keywords" content="Pasteleria, Tortas, Panaderia, Chocolateria, Decoracion de tortas">
+    <meta name="description" content="MAX GYM GIMNASIO">
+    <meta name="keywords" content="Futbol, entrenamiento funcional, ">
     <link rel="stylesheet" type="text/css" href="css/miestilo.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +17,11 @@
     -->
 
     <title>MAX GYM</title>
-</head>
-<!---------------- /END HEAD ---------------->
+</head> <!-- END HEAD  -->
 
 <body>
-    <!---------------- BODY ---------------->
-    <!---------------- HEADER ---------------->
+    <!--  START BODY  -->
+    <!-- Start Header -->
     <header>
         <a href="index.html"><img src="images/logo.png" width="394" height="83" alt="logo cake design school"
                 class="animate__animated animate__zoomIn"></a>
@@ -60,15 +58,13 @@
                     <li class="nav-item li__item li__item-hover">
                         <a class="nav-link " href="#" id="btn-mireserva">MI RESERVA</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
-        <!---------------- /END NAV BAR---------------->
-    </header>
-    <!---------------- /END HEADER---------------->
-
-    <!---------------- CARROUSEL ---------------->
+        <!-- NAV BAR CON BOOTSTRAP-->
+    </header> <!-- FIN / Header -->
+    
+    <!-- Carrousel -->
     <div id="carrouselBootstrap" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -90,99 +86,20 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!---------------- /END CARROUSEL---------------->
-
-    <!---------------- FILTRO CLASE---------------->
-    <section id="contenedorMiSelector">
-        <select id="mi-formselect" class=" form-select" aria-label="Default select example" 
-            onchange="ordenar();">
-            <option selected>SELECCIONE UN DÍA</option>
-            <option value="Lunes">LUNES</option>
-            <option value="Martes">MARTES</option>
-            <option value="Miércoles">MIÉRCOLES</option>
-            <option value="Jueves">JUEVES</option>
-            <option value="Viernes">VIERNES</option>
-            <option value="Sábado">SÁBADO</option>
-        </select>
+    <!--/ FIN Carrousel -->
+    <!--- SECCION PROFESORES -->
+    <section id="seccionProfesores" class="card-group" >
+        <!-- Acá se renderizan los profesores -->
     </section>
-    <!---------------- /END FILTRO CLASE---------------->
+    <!--- /END SECCION PROFESORES -->
+    <!-- FIN CLASES-->
     
-    <!---------------- CLASES ---------------->
-    <section id="cursosDestacados">
-        <!-- Array de clases -->
-    </section>
-    <!---------------- /END CLASES---------------->
+    <!-- OBTENER API-->
+    <section id="sectionPronostico" >
+        <h3>PRONÓSTICO PARA CLASES EN EXTERIOR</h3>
 
-    <!---------------- RECONOCIMIENTOS ---------------->
-    <section id="reconocimientos" class="animate__animated animate__zoomIn">
-        <!--  COMIENZO Premios -->
-        <img src="images/reconocimientos1.jpg" alt="reconocimientos premios en pasteleria">
-        <div id="textoReconocimiento">
-            <h2>RECONOCIMIENTO PRUEBA</h2>
-            <p> Hoy su trayectoria y evolución la posicionan como una de las mejores escuelas de América Latina. No sólo
-                porque se han optimizado sus planes de estudio y se ha incorporado la mejor tecnología, sino también
-                porque desde sus profesionales hasta sus instalaciones están especialmente preparados para la formación
-                en pastelería.
-                La propuesta educativa apunta a formar profesionales que puedan desenvolverse eficientemente en los
-                ámbitos de trabajo. Por eso el diseño curricular se elabora a través del diálogo social, con el aporte
-                de referentes reconocidos por el sector: cámaras empresariales, representantes de los trabajadores/as,
-                profesionales con amplia trayectoria, entre otros.
-            </p>
-        </div>
     </section>
-    <!---------------- /END RECONOCIMIENTOS---------------->
-
-    <!---------------- EXPOSICIONES ---------------->
-    <section class="expos">
-        <!--  COMIENZO Expos -->
-        <div class="item_expos animate__animated animate__fadeInLeft  expoEventos">
-            <img src="images/expo1.jpg" alt="expo eventos" width="400px">
-            <div class="textoExpo">
-                <h3> TORNEOS</h3>
-                <p>Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Fugit dolore veritatis praesentium harum
-                    illum, ad, assumenda! Sed dicta quibusdam excepturi labore similique dignissimos, perspiciatis eius
-                    reprehenderit, quidem aspernatur sequi dolorem.</p>
-                <p> "At vero eos et accusamus et iusto odio dignissimos ducimus qui blandigendi optio cumque nihil
-                    impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-                    repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-                    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-                    tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-                    perferendis doloribus asperiores repellat."</p>
-            </div>
-        </div>
-        <div class="animate__animated animate__fadeInRight item_expos expoPasteleria segundo_div">
-            <div class="textoEspecial">
-                <h3> NATACIÓN </h3>
-                <p>Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Fugit dolore veritatis praesentium harum
-                    illum, ad, assumenda! Sed dicta quibusdam excepturi labore similique dignissimos, perspiciatis eius
-                    reprehenderit, quidem aspernatur sequi dolorem.</p>
-                <p> "At vero eos et accusamus et iusto odio dignissimos ducimus qui blandigendi optio cumque nihil
-                    impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-                    repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-                    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-                    tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-                    perferendis doloribus asperiores repellat."</p>
-            </div>
-            <img src="images/expo2.jpg" alt="expo eventos" width="400px">
-        </div>
-        <div class="animate__animated animate__fadeInLeft expoDecoracion item_expos">
-            <img src="images/expo3.jpg" alt="expo eventos" width="400px">
-            <div class="textoExpo">
-                <h3> GIMNASIA ARTISTICA </h3>
-                <p>Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Fugit dolore veritatis praesentium harum
-                    illum, ad, assumenda! Sed dicta quibusdam excepturi labore similique dignissimos, perspiciatis eius
-                    reprehenderit, quidem aspernatur sequi dolorem.</p>
-                <p> "At vero eos et accusamus et iusto odio dignissimos ducimus qui blandigendi optio cumque nihil
-                    impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-                    repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-                    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-                    tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-                    perferendis doloribus asperiores repellat."</p>
-            </div>
-        </div>
-    </section>
-    <!---------------- /END EXPOSICIONES ---------------->
-
+    <!-- /END OBTENER API-->
     <!---------------- MODAL ---------------->
     <div class="mi_modal modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -201,7 +118,7 @@
                                 <th scope="col" class="text-center">CLASE</th>
                                 <th scope="col" class="text-center">DÍA</th>
                                 <th scope="col" class="text-center">HORARIO</th>
-                                <th scope="col" class="text-center"> ELIMINAR</th>
+                                 <!--   <th scope="col" class="text-center"> ELIMINAR</th> -->
                             </tr>
                         </thead>
                     </table>
@@ -224,8 +141,7 @@
         </div>
     </div>
     <!----------------/ FIN MODAL ---------------->
-
-    <!----------------START FOOTER ---------------->
+    <!-- --- -- START FOOTER --- -- -->
     <footer class="footer__mine">
         <div class="redes">
             <h2>Seguínos!</h2>
@@ -241,33 +157,23 @@
         <p>Desarrollado por Paula Saavedra.<br>
             TODOS LOS DERECHOS RESERVADOS.</p>
     </footer>
-    <!---------------- /END FOOTER ---------------->
-
-    <!---------------- LINKS ---------------->
+    <!-- --- -- END FOOTER --- -- -->
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
    
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    <!-- Sweet alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <!--Mi script-->
-    <script src="constructor.js"></script>
+    <script src="clases.js"></script>
     <script src="script2.js"></script>
-    
-    <!---------------- /END LINKS---------------->
-</body>
-<!---------------- /END BODY---------------->
+</body> <!-- --- -- END BODY --- -- -->
 
 </html>
