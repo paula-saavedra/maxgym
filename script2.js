@@ -148,9 +148,10 @@ function renderizarProductos(){
                                 <td class="table text-start fs-5 fw-bold">${Clase.disciplina}</td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.dia}</b></td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.horario}</b></td>
-                                <td class="table text-center">
+                                <!-- <td class="table text-center">
                                     <button  class="btn btn-dark type="submit" id="eliminar${Clase.id}">X</button>
-                                </td>
+                                 </td>
+                                 --> 
                             </tr>
                         </tbody>
                     </table>
@@ -164,7 +165,7 @@ function renderizarProductos(){
         
         }
 // --> FUNCION: quitar un producto de la tabla               >>>>>>>>>> NO ANDA >>>>>>>>>>
-   $(`#eliminar${Clase.id}`).click(function() {
+  $(`#eliminar${Clase.id}`).click(function() {
         const eliminarClase = carrito.splice().find(v => v.id == `${Clase.id}`);
         const eliminarIndex = carrito.indexOf(eliminarClase);
         carrito.splice(eliminarIndex, 1);
@@ -198,9 +199,10 @@ function renderizarProductos(){
                                 <td class="table text-center fs-5 fw-bold">${Clase.disciplina}</td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.dia}</b></td>
                                 <td class="table text-center fs-4 fw-bold"><b>${Clase.horario} Hs.</b></td>
-                                <td class="table text-center">
+                                <!-- <td class="table text-center">
                                     <button  class="btn btn-dark type="submit" id="eliminar${Clase.id}">X</button>
-                                </td>
+                                 </td>
+                                 --> 
                             </tr>
                         </tbody>
                     </table>`
